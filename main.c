@@ -26,22 +26,32 @@ void dohod(int v, int s)
 		printf("\nDohod=%d\n", v);
 	}
 
-int main()
-	{	
-		int c,d;
-		printf("Vvedite symmy vklada\n");
-		scanf("%d",&c);
+int check(int c, int d)
+	{
 		if (c<10000)
 			{
 				printf("\nMinimalnaya symma vklada 10000rub\n");
 				return 1;
 			}
-		printf("Vvedite srok\n");
-		scanf("%d",&d);
-		if (d<0 || d>365)
+		if (d<=0 || d>365)
 			{
-				printf("Nekorektnii srok");
+				printf("Nekorektnii srok\n");
 				return 1;
-			}	
-		else dohod (c,d);
+			}
+		return 0;
+	}
+
+int main()
+	{	
+		int v,s;
+		printf("Vvedite symmy vklada\n");
+		scanf("%d",&v);	
+		printf("Vvedite srok\n");
+		scanf("%d",&s);
+		if (check(v,s) != 0) {	
+			return 0;
+		}		 
+		else { 
+			dohod (v,s);
+		}
 	}
