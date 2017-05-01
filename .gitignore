@@ -1,5 +1,4 @@
-deposit-calc
 *.o
 .main.c.swp
 main.c~
-#main.c# 
+#main.c#
