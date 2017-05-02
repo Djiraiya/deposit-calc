@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "deposit.h"
 
-void dohod(int v, int s)
-	{	
+int dohod(int v, int s)
+	{
 		printf("Vklad:%d Srok:%d",v,s);
 			{
 				if (v<=100000)
@@ -25,6 +25,7 @@ void dohod(int v, int s)
 				if (s>240 && s<=365) v=v+v*0.15;
 			}
 		printf("\nDohod=%d\n", v);
+		return v;
 	}
 
 int check(int c, int d)
