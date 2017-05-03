@@ -14,4 +14,5 @@ int main()
 		else { 
 			dohod (v,s);
 		}
+	return 0;
 	}
