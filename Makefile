@@ -1,10 +1,9 @@
-CFLAGS = -Wall -Werror -MP -MMD
-SOURCES = src/main.c src/deposit.c
-OBJECTS = $(SOURCES:.c=.o)
-.PH: clean all deposit-calc
+CFLAGS = -Wall -Werror
 
-all :
-	make bin/deposit-calc
+.PHONY: clean all
+
+all :   bin/deposit-calc
+	bin/deposit-calc
 
 bin/deposit-calc : build/main.o build/deposit.o
 	gcc build/main.o build/deposit.o -o bin/deposit-calc $(CFLAGS)
@@ -16,9 +15,6 @@ build/deposit.o : src/deposit.c src/deposit.h
 	gcc -c src/deposit.c -o build/deposit.o $(CFLAGS)
 	
 clean :
-	rm -rf build/*.d 
 	rm -rf build/*.o
-	rm bin/deposit-calc
+	rm -rf bin/deposit-calc
 	@echo "All files have been cleaned."
-	
--include build/*.d
